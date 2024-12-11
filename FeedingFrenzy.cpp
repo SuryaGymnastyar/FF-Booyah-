@@ -72,6 +72,59 @@ void loadingawal() {
 	endwin();
 }
 
+void SignUp() {
+    ofstream myFile, accList;
+    string username, password;
+
+    system("cls");
+    gotoxy(42,13);
+    gotoxy(40, 9);
+	cout << "****************************************";
+	
+	for (int i = 10; i <= 18; i++) {
+    gotoxy(40, i);
+	cout << "*";
+    gotoxy(79, i);
+	cout << "*";
+}
+	gotoxy(40,19);
+	cout << "****************************************";
+
+    gotoxy(56,11);
+    cout << "SIGN UP" << endl;
+    gotoxy(45,14);
+    cout << "Enter Username : ";
+    cin >> username;
+    gotoxy(45,15);
+    cout << "Enter Password : ";
+    cin >> password;
+    cout << endl;
+    
+    gotoxy(40,19);
+	cout << "****************************************";
+
+    myFile.open(username + ".txt");
+    if (!myFile) {
+        cout << "Error opening file for user data!" << endl;
+        return;
+    }
+    myFile << password;
+    myFile.close();
+
+    accList.open("ListAccount.txt", ios::app);
+    if (!accList) {
+        cout << "Error opening account list!" << endl;
+        return;
+    }
+    accList << username << endl;
+    accList.close();
+	
+	gotoxy(50,17);
+    cout <<"Sign Up Successful!" << endl;
+    cin.ignore();
+    cin.get();
+}
+
 bool SignIn() {
     ifstream myFile;
     string username, password, fileUsername, filePassword;
