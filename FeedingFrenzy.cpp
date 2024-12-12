@@ -199,7 +199,39 @@ void getConsoleSize(int &width, int &height) {
     width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
     height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 }
+void loadingAnimation() {
+    int WIDTH, HEIGHT;
+    getConsoleSize(WIDTH, HEIGHT); 
+    
+    double amplitude1 = HEIGHT / 8.0; 
+    double amplitude2 = HEIGHT / 10.0;
+    double frequency = 4;
 
+    for (int i = 0; i < WIDTH; i++) {
+        int x = i % WIDTH;
+        int y1 = (int)(amplitude1 * sin(frequency * i));
+        int y2 = (int)(amplitude2 * sin(frequency * i + M_PI));
+        int y3 = (int)(amplitude1 * sin(frequency * i + M_PI));
+        int y4 = (int)(amplitude2 * sin(frequency * i));
+
+        gotoxy(x, HEIGHT / 4 + y1);
+        cout << "{==>>";
+        gotoxy(x + 7, HEIGHT / 4 + y2);
+        cout << "*";
+
+        gotoxy(x, 3 * HEIGHT / 4 + y3); 
+        cout << "{==>>";
+        gotoxy(x + 7, 3 * HEIGHT / 4 + y4);
+        cout << "*";
+
+        Sleep(50);
+
+        gotoxy(WIDTH / 2 - 10, HEIGHT / 2); 
+        cout << "WELCOME TO OUR GAME";
+
+        Sleep(5);
+    }
+}
 void Logic()                           
 {
     switch (arah)
