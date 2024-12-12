@@ -467,7 +467,6 @@ int main() {
 
     system("color 3F");
     loadingawal();
-// 	loadingAnimation();
 
    while (true) { 
        system("cls");
