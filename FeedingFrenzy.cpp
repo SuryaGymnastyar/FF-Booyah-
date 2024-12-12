@@ -1,11 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
-#include <string>
 #include <cmath>
 #include <ctime>
 #include <ncurses/ncurses.h>
 using namespace std;
+
+bool gameOver = false;                                    
+char character = 'O';
+const int lebar = 50;                           
+const int tinggi = 20;                       
+int x, y, posisiBuahX, posisiBuahY, skor;
+enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    
+eArah arah;
 
 void loadingawal() {
     system("color 3F");
@@ -177,5 +184,41 @@ bool SignIn() {
         cin.ignore();
         cin.get();
         return false;
+    }
+}
+
+void Logic()                           
+{
+    switch (arah)
+    {
+    case KIRI:
+		character = '<';                   
+        x--;
+        break;
+    case KANAN:
+    	character = '>';
+        x++;
+        break;
+    case ATAS:
+    	character = '^';
+        y--;
+        break;
+    case BAWAH:
+    	character = 'v';
+        y++;
+        break;
+    default:
+    	break;
+    	
+    }
+    if (x >= lebar -1 || x < 0 || y >= tinggi-1 || y < 0)   
+        gameOver = true;
+
+    if (x == posisiBuahX && y == posisiBuahY)
+    {
+        srand(time(0));
+        skor += 2;
+        posisiBuahX = (rand() % (lebar - 2)) + 1;     
+        posisiBuahY = (rand() % (tinggi - 2)) + 1;
     }
 }
