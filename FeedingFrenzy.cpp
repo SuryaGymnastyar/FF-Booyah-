@@ -281,6 +281,30 @@ void Draw()
         mvprintw(25,15,"A = LEFT");     
         mvprintw(26,15,"S = DOWN");
         mvprintw(27,15,"D = RIGHT");
+	mvprintw(2,57," ______                _  _                ");                              
+        mvprintw(3,57,"|  ____|              | |(_)               ");
+        mvprintw(4,57,"| |                   | |                  ");
+        mvprintw(5,57,"| |__   ___   ___   __| | _  _ __    __ _  ");
+        mvprintw(6,57,"|  __| / _ \\ / _ \\ / _` || || '_ \\  / _` | ");
+        mvprintw(7,57,"| |   |  __/|  __/| (_| || || | | || (_| | ");
+        mvprintw(8,57,"|_|    \\___| \\___| \\__,_||_||_| |_| \\__  | ");
+        mvprintw(9,57,"                                    __/  | ");                                  
+        mvprintw(10,57,"                                   |____/  ");     
+		mvprintw(12,57," ______                              ");                              
+        mvprintw(13,57,"|  ____|                             ");
+        mvprintw(14,57,"| |     _ __   ___  _ __     _____  _   _ ");
+        mvprintw(15,57,"| |__  | '__| / _ \\| '_ \\   |_   / | | | |");
+        mvprintw(16,57,"|  __| | |   |  __/| | | |   /  /  | | | |");
+        mvprintw(17,57,"| |    | |   |   \\ | | | |  /  /   | |_| |");
+        mvprintw(18,57,"|_|    |_|    \\___||_| |_| /____|   \\__, |");
+        mvprintw(19,57,"                                     __/ |");                                  
+        mvprintw(20,57,"                                    |___/ ");                         
+
+        mvprintw(24,30,"HOW TO PLAY :");
+        mvprintw(25,30,"1. MOVE WITH WASD KEYS");
+        mvprintw(26,30,"2. COLLECT THE @");
+        mvprintw(27,30,"3. DON'T HIT THE WALL!");                             
+}
 
 
 void Logic()                           
