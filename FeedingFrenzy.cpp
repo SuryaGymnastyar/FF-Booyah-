@@ -14,6 +14,13 @@ int x, y, posisiBuahX, posisiBuahY, skor;
 enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    
 eArah arah;
 
+void gotoxy(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
 void loadingawal() {
     system("color 3F");
 	initscr();
