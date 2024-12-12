@@ -232,6 +232,57 @@ void loadingAnimation() {
         Sleep(5);
     }
 }
+
+void Setup()                     
+{
+    gameOver = false;
+    arah = BERHENTI;
+    x = lebar / 2;
+    y = tinggi / 2;
+    posisiBuahX = (rand() % (lebar - 2)) + 1;  
+    posisiBuahY = (rand() % (tinggi - 2)) + 1;
+    skor = 0;
+}
+
+void Draw()                          
+{
+    erase();
+
+    printw("\n ");
+    for (int i = 0; i < lebar + 1; i++)  
+        printw("#");
+    printw("\n");
+
+
+    for (int i = 0; i < tinggi; i++)                   
+    {
+        for (int j = 0; j < lebar; j++)
+        {
+            if (j == 0)
+                printw(" #");                          
+            if (i == y && j == x)
+                printw("%c", character);                                     
+            else if (i == posisiBuahY && j == posisiBuahX)    
+                printw("@");
+            else
+                printw(" ");
+            if (j == lebar - 2)
+                printw("#");
+        }
+        printw("\n");
+    }
+
+    printw(" ");
+    for (int i = 0; i < lebar + 1; i++)
+    printw("#");
+    printw("\n\n SCORE : %d\n", skor);   
+
+        mvprintw(24,15,"W = UP");
+        mvprintw(25,15,"A = LEFT");     
+        mvprintw(26,15,"S = DOWN");
+        mvprintw(27,15,"D = RIGHT");
+
+
 void Logic()                           
 {
     switch (arah)
