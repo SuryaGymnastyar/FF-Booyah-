@@ -306,6 +306,32 @@ void Draw()
         mvprintw(27,30,"3. DON'T HIT THE WALL!");                             
 }
 
+void Input()                    
+{
+    int ch = getch(); 
+
+    switch (ch)                         
+    {                                    
+    case 'a':                             
+        if (arah != KANAN)  
+            arah = KIRI;
+        break;
+    case 'd':
+        if (arah != KIRI) 
+            arah = KANAN;
+        break;
+    case 'w':
+        if (arah != BAWAH) 
+            arah = ATAS;
+        break;
+    case 's':
+        if (arah != ATAS)  
+            arah = BAWAH;
+        break;
+    default:
+        break;
+    }
+}
 
 void Logic()                           
 {
