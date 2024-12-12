@@ -11,7 +11,7 @@ char character = 'O';
 const int lebar = 50;                           
 const int tinggi = 20;                       
 int x, y, posisiBuahX, posisiBuahY, skor;
-enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    
+enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH, NONE};    
 eArah arah;
 
 void gotoxy(int x, int y) {
@@ -82,7 +82,6 @@ void loadingawal() {
 	refresh();
 	Sleep(50);
 	}
-	
 	endwin();
 }
 
@@ -329,45 +328,49 @@ void Input()
             arah = BAWAH;
         break;
     default:
+        arah = NONE;
         break;
     }
 }
+
 
 void Logic()                           
 {
     switch (arah)
     {
     case KIRI:
-		character = '<';                   
+        character = '<';                   
         x--;
         break;
     case KANAN:
-    	character = '>';
+        character = '>';
         x++;
         break;
     case ATAS:
-    	character = '^';
+        character = '^';
         y--;
         break;
     case BAWAH:
-    	character = 'v';
+        character = 'v';
         y++;
         break;
+    case NONE:
+        break;
     default:
-    	break;
-    	
+        break;
     }
-    if (x >= lebar -1 || x < 0 || y >= tinggi-1 || y < 0)   
+
+    if (x >= lebar - 1 || x < 0 || y >= tinggi - 1 || y < 0)   
         gameOver = true;
 
     if (x == posisiBuahX && y == posisiBuahY)
     {
-        srand(time(0));
         skor += 2;
         posisiBuahX = (rand() % (lebar - 2)) + 1;     
         posisiBuahY = (rand() % (tinggi - 2)) + 1;
     }
 }
+
 
 void ending(){
 	endwin();
@@ -467,6 +470,7 @@ int main() {
 
     system("color 3F");
     loadingawal();
+    loadingAnimation();
 
    while (true) { 
        system("cls");
