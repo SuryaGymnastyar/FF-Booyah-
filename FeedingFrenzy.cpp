@@ -461,5 +461,98 @@ void startGame() {
     GameOver();
 }
 
-int main(){
+int main() {
+    int pil;
+    bool loggedIn = false;
+
+    system("color 3F");
+    loadingawal();
+// 	loadingAnimation();
+
+   while (true) { 
+       system("cls");
+
+       for (int i = 1; i <= 118; i++) {
+           gotoxy(i, 1);
+           printf("{-->>");
+           gotoxy(i, 4);
+           printf("{-->>");
+           gotoxy(i, 20);
+           printf("{-->>");
+           gotoxy(i, 24);
+           printf("{-->>");
+           Sleep(0.8);
+       }
+
+       for (int i = 1; i <= 24; i++) {
+           gotoxy(1, i);
+           printf("{-->>");
+           gotoxy(112, i);
+           printf("{-->>");
+           Sleep(0.5);
+       }
+
+       for (int i = 4; i <= 20; i++) {
+           gotoxy(40, i);
+           printf("*");
+           Sleep(0.5);
+       }
+       
+
+	   gotoxy(50, 2);
+       cout << "FEEDING FRENZY GAME";
+       gotoxy(55, 3);
+       cout << "Kelompok 7";
+       gotoxy(55, 22);
+       cout << "ILKOMP B";
+
+       gotoxy(8, 6);
+       cout << "1. Sign In";
+       gotoxy(8, 7);
+       cout << "2. Sign Up";
+       gotoxy(8, 8);
+       cout << "3. Play Game";
+       gotoxy(8, 9);
+       cout << "4. Exit";
+       
+       gotoxy(44, 6);
+       cout << "Masukkan Pilihan Anda [1,2,3,4]: ";
+       cin >> pil;
+       
+       switch (pil) {
+            case 1:
+                loggedIn = SignIn();
+                break;
+            case 2:
+                SignUp();
+                break;
+            case 3:
+                if (loggedIn) {
+                    startGame();
+                    
+                } else {
+                	endwin();
+                	gotoxy(44,6);
+                    cout << "Please Sign In to able playing the game.";
+                    cin.ignore();
+        			cin.get();
+                }
+                break;
+            case 4:
+            	endwin();
+            	gotoxy(44,6);
+                cout << "Exiting the game. Thankyou for playing our game:) !";
+                cin.ignore();
+        		cin.get();
+                return 0;
+            default:
+            	gotoxy(44,6);
+                cout << "Pilihan Tidak Ada. Silahkan Pilih antara 1 sampai 4.";
+                cin.ignore();
+        		cin.get();
+        }
+    }
+    
+   endwin();
+   return 0;
 }
