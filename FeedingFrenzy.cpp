@@ -222,3 +222,6 @@ void Logic()
         posisiBuahY = (rand() % (tinggi - 2)) + 1;
     }
 }
+
+int main(){
+}
