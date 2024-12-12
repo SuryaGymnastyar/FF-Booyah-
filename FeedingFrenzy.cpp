@@ -369,5 +369,97 @@ void Logic()
     }
 }
 
+void ending(){
+	endwin();
+	system("cls");
+	gotoxy(30, 9);
+	cout << "***********************************************************";
+
+	for (int i = 10; i <= 15; i++) {
+    gotoxy(30, i);
+	cout << "*";
+    gotoxy(88, i);
+	cout << "*";
+}
+	gotoxy(30,15);
+	cout << "***********************************************************";
+	
+	gotoxy(33,12);
+	cout << "Keluar dari Feeding Freenzy, Hope You Always Happy :D" << endl;
+	gotoxy(33,18);
+	exit(0);
+}
+
+void GameOver() {
+	endwin();
+    system("cls");
+    
+    cout << endl << endl;
+	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeee        "<<endl;
+	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
+	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
+	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
+	cout <<"          G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
+	cout <<"	  G:::::G    GGGGGGGGGGGG   a::::a    a::::a     m::::m   m::::m   m::::m  e:::::::eeeeeeeeeee      "<<endl;
+	cout <<"	   G::::G       G::::::G   a:::::a    a:::::a    m::::m   m::::m   m::::m  e::::::e                 "<<endl;
+	cout <<"	    GG:::GGGGGGGG:::::G   a:::::::aaaa:::::::a   m::::m   m::::m   m::::m  e::::::::eeeeeeee        "<<endl;
+	cout <<"	     GGGG::::::::::::G   a::::::aa    aa::::::a  m::::m   m::::m   m::::m   ee:::::::::::::::e      "<<endl;
+	cout <<"	       GGGGGGGGGGGGGG    aaaaaaaa      aaaaaaaa  mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeeee       "<<endl;
+	cout <<"              																		              "<<endl;
+	cout <<" 	       ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
+	cout <<" 	     oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
+	cout <<"	     o:::::::::::::::o   v:::::v       v:::::v     e::::::eeeee:::::ee      r:::::::::::::::::r     "<<endl;
+	cout <<"	     o:::::ooooo:::::o    v:::::v     v:::::v     e::::::e     e:::::e      rr:::::rrrrr::::::r     "<<endl;
+	cout <<"	     o::::o     o::::o     v:::::v   v:::::v      e:::::::eeeee::::::e      r:::::r     rrrrrr      "<<endl;
+	cout <<"	     o::::o     o::::o      v:::::v v:::::v       e::::::eeeeeeeeeeee       r:::::r                 "<<endl;                                                                            
+	cout <<"	     o:::::ooooo:::::o       v:::::v:::::v        e:::::e                   r:::::r                 "<<endl;                                                                           
+	cout <<"	     o:::::::::::::::o        v:::::::::v         e::::::::eeeeeeee         r:::::r                   "<<endl;                                                                                
+	cout <<"	      oo:::::::::::oo          v:::::::v           ee::::::::::::::e        r:::::r                   "<<endl;                                                                              
+	cout <<"	        ooooooooooo             vvvvvvv              eeeeeeeeeeeeee         rrrrrrr                   "<<endl;   
+ 	
+ 	gotoxy(45,26);
+	cout << "Game Over! Your score was: " << skor << endl;
+   	char pilih;
+   	gotoxy(45,28);
+	cout << "Apakah Ingin Bermain Lagi? [Y/N] : ";
+	cin >> pilih;
+
+	if (pilih == 'Y' || pilih == 'y') {
+	    Setup();
+   	
+	} else {
+        ending();
+	}
+}
+
+void startGame() {
+    system("cls");
+    gotoxy(40, 9);
+	cout << "****************************************";
+	
+	for (int i = 10; i <= 18; i++) {
+    gotoxy(40, i);
+	cout << "*";
+    gotoxy(79, i);
+	cout << "*";
+}
+	gotoxy(40,19);
+	cout << "****************************************";
+	
+    gotoxy(45,14);
+    cout <<"Starting The Feeding Frenzy...";
+    gotoxy(43,15);
+    cout <<"Hope You Enjoy The Game & Be Happy!";
+    getch();
+    Setup();
+    while (!gameOver)             
+    {
+        Draw();
+        Input();
+        Logic();
+    }
+    GameOver();
+}
+
 int main(){
 }
